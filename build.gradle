@@ -17,6 +17,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
 }
 
 dependencies {
