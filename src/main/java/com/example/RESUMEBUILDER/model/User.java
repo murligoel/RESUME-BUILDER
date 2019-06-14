@@ -1,5 +1,6 @@
-package com.example.RESUMEBUILDER;
+package com.example.RESUMEBUILDER.model;
 
+import com.example.RESUMEBUILDER.model.Role;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,16 +10,19 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "role")
-public class Role {
+@Table(name = "user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String username;
 
     private String password;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    @Transient
+    private String passwordConfirm;
+
+    @ManyToMany
+    private Set<Role> roles;
 }
