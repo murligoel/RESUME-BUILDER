@@ -9,19 +9,16 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "role")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String username;
 
     private String password;
 
-    @Transient
-    private String passwordConfirm;
-
-    @ManyToMany
-    private Set<Role> roles;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 }
