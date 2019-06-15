@@ -1,4 +1,4 @@
-package com.example.RESUMEBUILDER;
+package com.example.RESUMEBUILDER.service;
 
 import com.example.RESUMEBUILDER.model.Role;
 import com.example.RESUMEBUILDER.model.User;

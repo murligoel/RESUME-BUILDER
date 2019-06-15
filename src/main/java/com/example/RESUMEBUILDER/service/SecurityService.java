@@ -1,4 +1,4 @@
-package com.example.RESUMEBUILDER;
+package com.example.RESUMEBUILDER.service;
 
 public interface SecurityService {
 
