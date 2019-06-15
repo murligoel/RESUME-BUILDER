@@ -1,6 +1,6 @@
 package com.example.RESUMEBUILDER.controller;
 
-import com.example.RESUMEBUILDER.UserValidator;
+import com.example.RESUMEBUILDER.validation.UserValidator;
 import com.example.RESUMEBUILDER.model.User;
 import com.example.RESUMEBUILDER.service.SecurityService;
 import com.example.RESUMEBUILDER.service.UserService;
