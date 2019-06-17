@@ -6,7 +6,7 @@
 </head>
 <body>
 <form class="form-signin" th:action="@{/registration}" th:object="${userForm}" method="post">
-    <h2>Sign In</h2>
+    <h2>Create an account</h2>
     <input type="text" th:field="*{username}" placeholder="Username">
     <input type="password" th:field="*{password}" placeholder="Password">
     <input type="password" th:field="*{passwordConfirm}" placeholder="Confirm Password">

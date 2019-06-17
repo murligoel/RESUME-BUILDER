@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Log in with your account</title>
+</head>
+
+<body>
+
+<div class="container">
+    <form method="POST" action="/login" class="form-signin">
+        <h2 class="form-heading">Log in</h2>
+            <input name="username" type="text"  placeholder="Username"/>
+            <input name="password" type="password"  placeholder="Password"/>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+            <h4 class="text-center"><a href="/registration">Create an account</a></h4>
+    </form>
+</div>
+</body>
+</html>
