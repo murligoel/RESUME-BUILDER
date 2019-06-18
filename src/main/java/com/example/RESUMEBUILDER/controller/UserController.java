@@ -23,40 +23,41 @@ public class UserController {
     private UserValidator userValidator;
 
     @GetMapping("/registration")
-    public String registration(Model model) {
-        model.addAttribute("userForm", new User());
-
-        return "registration";
+    public ModelAndView registration() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("registration");
+        modelAndView.addObject("userForm", new User());
+        return modelAndView;
     }
 
-    @PostMapping("/registration")
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public ModelAndView createSignup(User userForm, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
         userValidator.validate(userForm, bindingResult);
-
         if (bindingResult.hasErrors()) {
-            return "registration";
+            modelAndView = registration();
+
+        } else {
+            userService.save(userForm);
+            securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
+            modelAndView = welcome();
         }
+        return modelAndView;
 
-        userService.save(userForm);
-
-        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-
-        return "redirect:/welcome";
     }
 
     @GetMapping("/login")
-    public String login(Model model, String error, String logout) {
-        if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
-
-        if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
-
-        return "login";
+    public ModelAndView login() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+        return modelAndView;
     }
 
     @GetMapping({"/", "/welcome"})
-    public String welcome(Model model) {
-        return "welcome";
+    public ModelAndView welcome() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("welcome");
+        return modelAndView;
     }
 }
