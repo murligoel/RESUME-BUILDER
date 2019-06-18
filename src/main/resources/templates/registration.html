@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <title>Create an account</title>
 </head>
 <body>
-<form class="form-signin" th:action="@{/registration}" th:object="${userForm}" method="post">
-    <h2>Create an account</h2>
-    <input type="text" th:field="*{username}" placeholder="Username">
-    <input type="password" th:field="*{password}" placeholder="Password">
-    <input type="password" th:field="*{passwordConfirm}" placeholder="Confirm Password">
-    <button type="submit">Submit</button>
-</form>
+        <div id="login-page">
+            <div class="container">
+                <form class="form-login"  th:action="@{registration}" th:object="${userForm}" method="post" role="form">
+                    <h2 class="form-login-heading">sign up now</h2>
+                    <div class="login-wrap" id="form">
+                        <div class="textBox">
+                            <label class="label">Username</label>
+                            <input class="text" type="text" th:field="*{username}"/>
 
+                        </div>
+                        <div class="textBox">
+                            <label class="label">Password</label>
+                            <input class="text" type="password" th:field="*{password}" />
+
+                        </div>
+                        <div class="textBox">
+                            <label class="label">Confirm Password</label>
+                            <input class="text"  type="password" th:field="*{passwordConfirm}" />
+
+                        </div>
+                        <button  type="submit"> SIGN UP</button>
+                        <div class="registration text-center">Already have an account?<br/><a  href="/login">Signin</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
 </body>
 </html>
