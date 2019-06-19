@@ -18,10 +18,11 @@ public class PersonalController {
     private PersonalService personalService;
 
     @RequestMapping(value="/personal" ,method= RequestMethod.GET)
-    public ModelAndView personalForm(){
+    public ModelAndView personalForm(String msg){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("personalForm");
         modelAndView.addObject("personal",new Personal());
+        modelAndView.addObject("msg", msg);
         return modelAndView;
     }
 
@@ -30,11 +31,12 @@ public class PersonalController {
         ModelAndView modelAndView = new ModelAndView();
         if(bindingResult.hasErrors()){
             modelAndView.setViewName("personalForm");
+            modelAndView.addObject("msg", "Failed to Update Details due to some errors");
             modelAndView.addObject("personal", personal);
         }
         else {
             personalService.createPersonal(personal);
-            modelAndView = personalForm();
+            modelAndView = personalForm("Personal details has been uploaded");
         }
         return modelAndView;
     }
