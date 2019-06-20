@@ -15,4 +15,9 @@ public class PersonalServiceImpl implements PersonalService {
     public Personal createPersonal(Personal personal) {
         return personalRepository.save(personal);
     }
+
+    @Override
+    public Personal getPersonalDetails(long id) {
+        return personalRepository.findById(id).orElse(null);
+    }
 }
