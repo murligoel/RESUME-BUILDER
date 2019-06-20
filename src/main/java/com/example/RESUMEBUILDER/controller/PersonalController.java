@@ -40,4 +40,13 @@ public class PersonalController {
         }
         return modelAndView;
     }
+
+
+    @RequestMapping(value = "/resume1",method = RequestMethod.GET)
+    public ModelAndView getPersonalDetails(Long id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("resume_template1");
+        modelAndView.addObject("personalDetails",personalService.getPersonalDetails(id));
+        return modelAndView;
+    }
 }

@@ -17,7 +17,7 @@ public class PersonalServiceImpl implements PersonalService {
     }
 
     @Override
-    public Personal getPersonalDetails(long id) {
+    public Personal getPersonalDetails(Long id) {
         return personalRepository.findById(id).orElse(null);
     }
 }
