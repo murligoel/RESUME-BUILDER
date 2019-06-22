@@ -17,6 +17,12 @@ public class Personal {
     private Long id;
 
     @NotEmpty
+    private String firstName;
+
+    @NotEmpty
+    private String lastName;
+
+    @NotEmpty
     private String username;
 
     @NotEmpty
