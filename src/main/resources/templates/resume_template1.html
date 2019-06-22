@@ -28,7 +28,10 @@
         <!-- Begin About Me Section -->
         <section id="about" class="clearfix">
             <h2 class="heading">About Me</h2>
-            <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <li class="item" th:text="${personalId.username}">Username : </li>
+            <li class="item" th:text="${personalId.email}"></li>
+            <li class="item" th:text="${personalId.mobileNumber}"></li>
+            <li class="item" th:text="${personalId.address}"></li>
         </section>
         <!-- End About Me Section -->
 
@@ -39,7 +42,7 @@
                 <h5>Project Manager at Company Name</h5>
                 <h6>June 2011 - Present</h6>
                 <ul class="generic-list">
-                    <li class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, adipisci.</li>
+                    <li class="item" th:text="${personalId.username}"></li>
                     <li class="item">Adipisci, natus, commodi non doloremque voluptates officia praesentium qui eveniet!</li>
                     <li class="item">Sunt, unde, sed illum dicta aperiam ex dolorum quis pariatur?</li>
                     <li class="item">Nobis, maiores porro distinctio sapiente minima autem placeat voluptas vero.</li>
