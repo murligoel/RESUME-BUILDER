@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Sally Smythe Resume</title>
+    <title th:text="${personalId.username}"></title>
     <link rel="stylesheet" th:href="@{/css/template1.css}" />
 </head>
 <body>
@@ -10,7 +10,7 @@
 
     <!-- Begin Header Navigation-->
     <header class="header">
-        <h1>Sally Smythe</h1>
+        <h1 th:text="${personalId.firstName} + ' ' + ${personalId.lastName}"></h1>
         <nav class="site-nav">
             <ul>
                 <li><a href="#about">About</a></li>

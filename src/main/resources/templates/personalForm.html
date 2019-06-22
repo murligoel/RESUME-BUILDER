@@ -9,6 +9,14 @@
 <h2 th:text="${msg}"></h2>
 <form th:action="@{/personal}" th:object="${personal}" method="post">
     <div class="textBox">
+        <label class="label">First Name</label>
+        <input class="text" type="text" th:field="*{firstName}"/>
+    </div>
+    <div class="textBox">
+        <label class="label">Last Name</label>
+        <input class="text" type="text" th:field="*{lastName}"/>
+    </div>
+    <div class="textBox">
         <label class="label">Username</label>
         <input class="text" type="text" th:field="*{username}"/>
     </div>
