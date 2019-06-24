@@ -1,38 +1,91 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Create an account</title>
+    <title>Creative Colorlib SignUp Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" th:href="@{/css/signup.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
 </head>
 <body>
-        <div id="login-page">
-            <div class="container">
-                <form class="form-login"  th:action="@{/registration}" th:object="${userForm}" method="post" role="form">
-                    <h2 class="form-login-heading">sign up now</h2>
-                    <div class="login-wrap" id="form">
-                        <div class="textBox">
-                            <label class="label">Username</label>
-                            <input class="text" type="text" th:field="*{username}"/>
-
-                        </div>
-                        <div class="textBox">
-                            <label class="label">Password</label>
-                            <input class="text" type="password" th:field="*{password}" />
-
-                        </div>
-                        <div class="textBox">
-                            <label class="label">Confirm Password</label>
-                            <input class="text"  type="password" th:field="*{passwordConfirm}" />
-
-                        </div>
-                        <button  type="submit"> SIGN UP</button>
-                        <div class="registration text-center">Already have an account?<br/><a  href="/login">Signin</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
+<!-- main -->
+<div class="main-w3layouts wrapper">
+    <h1>Creative SignUp Form</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form th:action="@{/registration}" th:object="${userForm}" method="post" role="form">
+                <input class="text" type="text" th:field="*{username}" name="Username" placeholder="Username" required="">
+                <input class="text" type="password" th:field="*{password}" name="password" placeholder="Password" required="">
+                <input class="text w3lpass" type="password" th:field="*{passwordConfirm}" name="password" placeholder="Confirm Password" required="">
+                <div class="wthree-text">
+                    <label class="anim">
+                        <input type="checkbox" class="checkbox" required="">
+                        <span>I Agree To The Terms & Conditions</span>
+                    </label>
+                    <div class="clear"> </div>
+                </div>
+                <input type="submit" value="SIGNUP">
+            </form>
+            <p>Don't have an Account? <a href="/login"> Login Now!</a></p>
         </div>
-
+    </div>
+    <!-- copyright -->
+    <div class="colorlibcopy-agile">
+        <p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+    </div>
+    <!-- //copyright -->
+</div>
+<!-- //main -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Create an account</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--        <div id="login-page">-->
+<!--            <div class="container">-->
+<!--                <form class="form-login"  th:action="@{/registration}" th:object="${userForm}" method="post" role="form">-->
+<!--                    <h2 class="form-login-heading">sign up now</h2>-->
+<!--                    <div class="login-wrap" id="form">-->
+<!--                        <div class="textBox">-->
+<!--                            <label class="label">Username</label>-->
+<!--                            <input class="text" type="text" th:field="*{username}"/>-->
+
+<!--                        </div>-->
+<!--                        <div class="textBox">-->
+<!--                            <label class="label">Password</label>-->
+<!--                            <input class="text" type="password" th:field="*{password}" />-->
+
+<!--                        </div>-->
+<!--                        <div class="textBox">-->
+<!--                            <label class="label">Confirm Password</label>-->
+<!--                            <input class="text"  type="password" th:field="*{passwordConfirm}" />-->
+
+<!--                        </div>-->
+<!--                        <button  type="submit"> SIGN UP</button>-->
+<!--                        <div class="registration text-center">Already have an account?<br/><a  href="/login">Signin</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--</body>-->
+<!--</html>-->
