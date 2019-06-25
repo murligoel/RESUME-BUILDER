@@ -5,6 +5,8 @@ import com.example.RESUMEBUILDER.repository.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("skillService")
 public class SkillServiceImpl implements SkillService {
 
@@ -14,5 +16,10 @@ public class SkillServiceImpl implements SkillService {
     @Override
     public Skills createSkill(Skills skills) {
         return skillRepository.save(skills);
+    }
+
+    @Override
+    public List<Skills> getAllSkills() {
+        return skillRepository.findAll();
     }
 }

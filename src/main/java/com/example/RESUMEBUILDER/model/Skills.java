@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,5 +17,5 @@ public class Skills {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String skill;
+    private ArrayList<String> skill;
 }
