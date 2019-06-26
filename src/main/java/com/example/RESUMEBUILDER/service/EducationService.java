@@ -4,4 +4,5 @@ import com.example.RESUMEBUILDER.model.Education;
 
 public interface EducationService {
     Education createEducationalDetails(Education education);
+    Education getEducationDetails(Long id);
 }

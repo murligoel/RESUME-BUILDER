@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title th:text="${personalId.username}"></title>
+    <title th:text="${personalId.personal.username}"></title>
     <link rel="stylesheet" th:href="@{/css/template1.css}" />
 </head>
 <body>
@@ -10,7 +10,7 @@
 
     <!-- Begin Header Navigation-->
     <header class="header">
-        <h1 th:text="${personalId.firstName} + ' ' + ${personalId.lastName}"></h1>
+        <h1 th:text="${personalId.personal.firstName} + ' ' + ${personalId.personal.lastName}"></h1>
         <nav class="site-nav">
             <ul>
                 <li><a href="#about">About</a></li>
@@ -28,10 +28,10 @@
         <!-- Begin About Me Section -->
         <section id="about" class="clearfix">
             <h2 class="heading">About Me</h2>
-            <li class="item" th:text="${personalId.username}">Username : </li>
-            <li class="item" th:text="${personalId.email}"></li>
-            <li class="item" th:text="${personalId.mobileNumber}"></li>
-            <li class="item" th:text="${personalId.address}"></li>
+            <li class="item" th:text="${personalId.personal.username}">Username : </li>
+            <li class="item" th:text="${personalId.personal.email}"></li>
+            <li class="item" th:text="${personalId.personal.mobileNumber}"></li>
+            <li class="item" th:text="${personalId.personal.address}"></li>
         </section>
         <!-- End About Me Section -->
 
@@ -42,7 +42,7 @@
                 <h5>Project Manager at Company Name</h5>
                 <h6>June 2011 - Present</h6>
                 <ul class="generic-list">
-                    <li class="item" th:text="${personalId.username}"></li>
+                    <li class="item" th:text="${personalId.personal.username}"></li>
                     <li class="item">Adipisci, natus, commodi non doloremque voluptates officia praesentium qui eveniet!</li>
                     <li class="item">Sunt, unde, sed illum dicta aperiam ex dolorum quis pariatur?</li>
                     <li class="item">Nobis, maiores porro distinctio sapiente minima autem placeat voluptas vero.</li>
