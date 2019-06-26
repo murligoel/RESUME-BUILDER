@@ -26,23 +26,23 @@ public class SkillController {
         return modelAndView;
     }
     @RequestMapping(value = "/skills", method = RequestMethod.POST)
-    public ModelAndView createBookPost(Skills skills, BindingResult bindingResult ) {
+    public ModelAndView createSkills(Skills skills, BindingResult bindingResult ) {
         ModelAndView modelAndView = new ModelAndView();
         if(bindingResult.hasErrors()){
             modelAndView.setViewName("skill");
-            modelAndView.addObject("msg", "Failed to Update Details due to some errors");
+            modelAndView.addObject("msg", "Failed to Update Skills due to some errors");
             modelAndView.addObject("skills", skills);
         }
         else {
             skills.getSkill().spliterator();
             skillService.createSkill(skills);
-            modelAndView = personalForm("Personal details has been uploaded",skills.getId());
+            modelAndView = personalForm("Skills has been uploaded",skills.getId());
         }
         return modelAndView;
     }
 
     @RequestMapping(value = "/skillView/{id}",method = RequestMethod.GET)
-    public ModelAndView getAllBook(@PathVariable Long id){
+    public ModelAndView getSkills(@PathVariable Long id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("skillView");
         modelAndView.addObject("skills",skillService.getSkillById(id));
