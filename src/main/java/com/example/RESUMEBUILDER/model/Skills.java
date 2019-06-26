@@ -17,5 +17,7 @@ public class Skills {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private ArrayList<String> skill;
+    @Column
+    @ElementCollection(targetClass=String.class)
+    private List<String> skill;
 }
