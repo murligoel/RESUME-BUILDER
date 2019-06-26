@@ -36,8 +36,9 @@ public class EducationController {
         }
         else {
             educationService.createEducationalDetails(education);
-            modelAndView = personalForm("Personal details has been uploaded");
+            modelAndView = personalForm("Educational details has been uploaded");
         }
         return modelAndView;
     }
+//      return "redirect:/showData";
 }

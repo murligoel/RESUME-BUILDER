@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Educational Detail Form</title>
+</head>
+<body>
+<h2>Please fill the Educational details</h2>
+<h2 th:text="${msg}"></h2>
+<form th:action="@{/education}" th:object="${education}" method="post">
+    <div class="textBox">
+        <label class="label">High School Name</label>
+        <input class="text" type="text" th:field="*{highSchoolName}"/>
+    </div>
+    <div class="textBox">
+        <label class="label">Intermediate School Name</label>
+        <input class="text" type="text" th:field="*{intermediateSchoolName}"/>
+    </div>
+    <div class="textBox">
+        <label class="label">College Name</label>
+        <input class="text" type="text" th:field="*{graduationCollegeName}"/>
+    </div>
+    <div class="textBox">
+        <label class="label">High School Percentage</label>
+        <input class="text" type="text" th:field="*{highSchoolPercentage}" />
+    </div>
+    <div class="textBox">
+        <label class="label">Intermediate Percentage</label>
+        <input class="text"  type="text" th:field="*{intermediatePercentage}" />
+    </div>
+    <div class="textBox">
+        <label class="label">Graduation Percentage</label>
+        <input class="text"  type="text" th:field="*{graduationPercentage}" />
+    </div>
+    <div class="textBox">
+        <label class="label">High School Passing Year</label>
+        <input class="text"  type="text" th:field="*{highSchoolPassingYear}" />
+    </div>
+    <div class="textBox">
+        <label class="label">Intermediate Passing Year</label>
+        <input class="text"  type="text" th:field="*{intermediatePassingYear}" />
+    </div>
+    <div class="textBox">
+        <label class="label">Graduating Year</label>
+        <input class="text"  type="text" th:field="*{graduatingYear}" />
+    </div>
+    <button  type="submit"> Submit</button>
+</form>
+<!--<a th:href="@{/resume1/{resume_id}(resume_id=${fetched_id})}">Preview</a>-->
+</body>
+</html>
