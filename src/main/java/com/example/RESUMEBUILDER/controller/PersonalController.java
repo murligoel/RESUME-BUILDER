@@ -18,6 +18,8 @@ public class PersonalController {
     @Autowired
     private PersonalService personalService;
 
+    public static Long personalFormId;
+
 
     @RequestMapping(value="/personal" ,method= RequestMethod.GET)
     public ModelAndView personalForm(String msg , Long fetched_id){
@@ -39,16 +41,17 @@ public class PersonalController {
         }
         else {
             personalService.createPersonal(personal);
+            personalFormId = personal.getId();
             modelAndView = personalForm("Personal details has been uploaded",personal.getId());
         }
         return modelAndView;
     }
 
-    @RequestMapping(value = "/resume1/{id}",method = RequestMethod.GET)
-    public ModelAndView getPersonalDetails(@PathVariable Long id){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("resume_template1");
-        modelAndView.addObject("personalId",personalService.getPersonalDetails(id));
-        return modelAndView;
-    }
+//    @RequestMapping(value = "/resume1/{id}",method = RequestMethod.GET)
+//    public ModelAndView getPersonalDetails(@PathVariable Long id){
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("resume_template1");
+//        modelAndView.addObject("personalId",personalService.getPersonalDetails(id));
+//        return modelAndView;
+//    }
 }

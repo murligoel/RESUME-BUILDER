@@ -15,4 +15,9 @@ public class EducationServiceImpl implements EducationService{
     public Education createEducationalDetails(Education education) {
         return educationRepository.save(education);
     }
+
+    @Override
+    public Education getEducationDetails(Long id) {
+        return educationRepository.findById(id).orElse(null);
+    }
 }
