@@ -43,4 +43,7 @@ public class Education {
     @NotEmpty
     private String graduatingYear;
 
+    @OneToOne
+    private Personal personal;
+
 }
