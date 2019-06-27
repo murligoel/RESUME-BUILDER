@@ -2,12 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Skills</title>
+    <title>Resume</title>
 </head>
 <body>
 <div id="posts" class="row no-gutters">
     <div>
-        <h1>Books DB</h1>
+        <h1>Personal Details</h1>
+        <li class="item" th:text="${personal.username}">Username : </li>
+        <li class="item" th:text="${personal.email}"></li>
+        <li class="item" th:text="${personal.mobileNumber}"></li>
+        <li class="item" th:text="${personal.address}"></li>
     </div>
     <div class="col-12 col-md-6 col-lg-4" th:each="skill : ${skills.skill}">
         <div>

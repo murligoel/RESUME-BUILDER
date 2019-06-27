@@ -10,6 +10,6 @@
 <textarea  rows="10" cols="30" th:field="*{skill}"></textarea>
     <button  type="submit"> SUBMIT</button>
 </form>
-<a th:href="@{/skillView/{id}(id=${fetched_id})}">Preview</a>
+<a th:href="@{/skillView/{id1}/{id2}/{id3}(id1=${fetched_id_personal},id2=${fetched_id_education},id3=${fetched_id})}">Preview</a>
 </body>
 </html>

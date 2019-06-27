@@ -18,7 +18,7 @@ public class EducationController {
     @Autowired
     private EducationService educationService;
 
-    public static Long formId;
+    public static Long educationFormId;
 
     @RequestMapping(value = "/education",method = RequestMethod.GET)
     public ModelAndView personalForm(String msg , Long fetched_id){
@@ -40,7 +40,7 @@ public class EducationController {
         }
         else {
             educationService.createEducationalDetails(education);
-            formId = PersonalController.personalFormId;
+            educationFormId = education.getId();
             modelAndView = personalForm("Educational details has been uploaded",education.getId());
         }
         return modelAndView;

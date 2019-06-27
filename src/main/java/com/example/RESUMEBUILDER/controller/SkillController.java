@@ -1,6 +1,8 @@
 package com.example.RESUMEBUILDER.controller;
 
 import com.example.RESUMEBUILDER.model.Skills;
+import com.example.RESUMEBUILDER.service.EducationService;
+import com.example.RESUMEBUILDER.service.PersonalService;
 import com.example.RESUMEBUILDER.service.SkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,13 +18,23 @@ public class SkillController {
     @Autowired
     private SkillService skillService;
 
+    @Autowired
+    private PersonalService personalService;
+
+    @Autowired
+    private EducationService educationService;
+
+    public static Long skillFormId;
+
     @RequestMapping(value="/skills" ,method= RequestMethod.GET)
-    public ModelAndView personalForm(String msg, Long fetched_id){
+    public ModelAndView skillsForm(String msg, Long fetched_id , Long fetched_id_personal, Long fetched_id_education){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("skill");
         modelAndView.addObject("skills",new Skills());
         modelAndView.addObject("msg", msg);
         modelAndView.addObject("fetched_id",fetched_id);
+        modelAndView.addObject("fetched_id_personal",fetched_id_personal);
+        modelAndView.addObject("fetched_id_education",fetched_id_education);
         return modelAndView;
     }
     @RequestMapping(value = "/skills", method = RequestMethod.POST)
@@ -36,16 +48,19 @@ public class SkillController {
         else {
             skills.getSkill().spliterator();
             skillService.createSkill(skills);
-            modelAndView = personalForm("Skills has been uploaded",skills.getId());
+            skillFormId = skills.getId();
+            modelAndView = skillsForm("Skills has been uploaded",skillFormId,PersonalController.personalFormId,EducationController.educationFormId);
         }
         return modelAndView;
     }
 
-    @RequestMapping(value = "/skillView/{id}",method = RequestMethod.GET)
-    public ModelAndView getSkills(@PathVariable Long id){
+    @RequestMapping(value = "/skillView/{id1}/{id2}/{id3}",method = RequestMethod.GET)
+    public ModelAndView getSkills(@PathVariable(value = "id1") Long id1,@PathVariable(value = "id2") Long id2 , @PathVariable(value = "id3") Long id3){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("skillView");
-        modelAndView.addObject("skills",skillService.getSkillById(id));
+        modelAndView.addObject("personal",personalService.getPersonalDetails(id1));
+        modelAndView.addObject("education",educationService.getEducationDetails(id2));
+        modelAndView.addObject("skills",skillService.getSkillById(id3));
         return modelAndView;
     }
 }
