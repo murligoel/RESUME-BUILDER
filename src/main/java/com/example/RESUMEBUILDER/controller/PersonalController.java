@@ -52,7 +52,7 @@ public class PersonalController {
     @RequestMapping(value="/personal/update/{id}" ,method= RequestMethod.GET)
     public ModelAndView editPersonalForm(String msg , @PathVariable  Long id){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editPersonalForm");
+        modelAndView.setViewName("personalForm");
         Personal personalForm = personalService.getPersonalDetails(id);
         modelAndView.addObject("personal",personalForm);
         modelAndView.addObject("msg", msg);
