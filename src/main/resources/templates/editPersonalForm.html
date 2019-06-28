@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Personal Form</title>
+    <title>Edit Personal Form</title>
 </head>
 <body>
 <h2>Please fill the personal details</h2>
 <h2 th:text="${msg}"></h2>
-<form th:action="@{/personal}" th:object="${personal}" method="post">
+<form th:action="@{'/personal/update/' + ${personal.id}}" th:object="${personal}" th:method="PUT">
     <div class="textBox">
         <label class="label">First Name</label>
         <input class="text" type="text" th:field="*{firstName}"/>
@@ -34,7 +34,7 @@
     </div>
     <button  type="submit"> Submit</button>
 </form>
-    <a th:href="@{/personal/update/{resume_id}(resume_id=${fetched_id})}">Preview</a>
-    <a href="/education">Next</a>
+<!--<a th:href="@{/personal/update/{resume_id}(resume_id=${fetched_id})}">Preview</a>-->
+<a href="/education">Next</a>
 </body>
 </html>

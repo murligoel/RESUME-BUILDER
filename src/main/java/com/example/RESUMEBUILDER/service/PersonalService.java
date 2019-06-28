@@ -6,4 +6,6 @@ public interface PersonalService {
 
     Personal createPersonal(Personal personal);
     Personal getPersonalDetails(Long id);
+    Personal updatePersonalDetails(Personal personal, Long id);
+
 }

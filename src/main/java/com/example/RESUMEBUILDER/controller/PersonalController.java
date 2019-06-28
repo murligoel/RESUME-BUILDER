@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class PersonalController {
@@ -42,16 +44,29 @@ public class PersonalController {
         else {
             personalService.createPersonal(personal);
             personalFormId = personal.getId();
-            modelAndView = personalForm("Personal details has been uploaded",personal.getId());
+            modelAndView = personalForm("Personal details has been uploaded",PersonalController.personalFormId);
         }
         return modelAndView;
     }
 
-//    @RequestMapping(value = "/resume1/{id}",method = RequestMethod.GET)
-//    public ModelAndView getPersonalDetails(@PathVariable Long id){
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("resume_template1");
-//        modelAndView.addObject("personalId",personalService.getPersonalDetails(id));
-//        return modelAndView;
-//    }
+    @RequestMapping(value="/personal/update/{id}" ,method= RequestMethod.GET)
+    public ModelAndView editPersonalForm(String msg , @PathVariable  Long id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editPersonalForm");
+        Personal personalForm = personalService.getPersonalDetails(id);
+        modelAndView.addObject("personal",personalForm);
+        modelAndView.addObject("msg", msg);
+
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/personal/update/{fetched_id}", method = RequestMethod.PUT)
+    public ModelAndView edit(@Valid Personal personal, @PathVariable Long fetched_id ) {
+        ModelAndView modelAndView = new ModelAndView();
+            personalService.updatePersonalDetails(personal,fetched_id);
+            modelAndView = editPersonalForm("Personal details has been updated",PersonalController.personalFormId);
+
+        return modelAndView;
+    }
 }

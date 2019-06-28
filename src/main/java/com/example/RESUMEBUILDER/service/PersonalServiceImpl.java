@@ -20,4 +20,10 @@ public class PersonalServiceImpl implements PersonalService {
     public Personal getPersonalDetails(Long id) {
         return personalRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Personal updatePersonalDetails(Personal personal, Long id) {
+        personal.setId(id);
+        return personalRepository.save(personal);
+    }
 }
