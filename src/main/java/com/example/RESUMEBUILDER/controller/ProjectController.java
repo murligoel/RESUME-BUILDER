@@ -31,14 +31,14 @@ public class ProjectController {
         ModelAndView modelAndView = new ModelAndView();
         if(bindingResult.hasErrors()){
             modelAndView.setViewName("skill");
-            modelAndView.addObject("msg", "Failed to Update Skills due to some errors");
+            modelAndView.addObject("msg", "Failed to Update Projects due to some errors");
             modelAndView.addObject("projects", project);
         }
         else {
 //            skills.getSkill().spliterator();
             projectService.createdProject(project);
             projectFormId = project.getId();
-            modelAndView = projectsForm("Skills has been uploaded",projectFormId);
+            modelAndView = projectsForm("Projects has been uploaded",projectFormId);
         }
         return modelAndView;
     }
