@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 th:text="${msg}"></h2>
+<form class="form-projects"  th:action="@{/projects}" th:object="${projects}" method="post">
+    <textarea  rows="10" cols="30" th:field="*{projectName}"></textarea>
+    <textarea  rows="10" cols="30" th:field="*{projectLink}"></textarea>
+    <button  type="submit"> SUBMIT</button>
+</form>
+<a href="/skills">Next</a>
+<!--<a th:href="@{/skillView/{id1}/{id2}/{id3}(id1=${fetched_id_personal},id2=${fetched_id_education},id3=${fetched_id})}">Preview</a>-->
+</body>
+</html>
