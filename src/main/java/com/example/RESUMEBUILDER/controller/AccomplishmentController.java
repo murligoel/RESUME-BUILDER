@@ -37,7 +37,7 @@ public class AccomplishmentController {
         else {
             accomplishmentService.createAccomplishments(accomplishment);
             fetched_id_accomplishment = accomplishment.getId();
-            modelAndView = accomplishmentsForm("Skills has been uploaded",AccomplishmentController.fetched_id_accomplishment);
+            modelAndView = accomplishmentsForm("Accomplishments has been uploaded",AccomplishmentController.fetched_id_accomplishment);
         }
         return modelAndView;
     }
