@@ -13,9 +13,23 @@
         <li class="item" th:text="${personal.mobileNumber}"></li>
         <li class="item" th:text="${personal.address}"></li>
     </div>
+    <div>
     <div class="col-12 col-md-6 col-lg-4" th:each="skill : ${skills.skill}">
+        <h1>Skills</h1>
         <div>
             <li th:text="${skill}"></li>
+        </div>
+    </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" th:each="projectName : ${projects.projectName}">
+        <div>
+            <li th:text="${projectName}"></li>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" th:each="projectLink : ${projects.projectLink}">
+        <div>
+<!--            <li th:text="${projectLink}"></li>-->
+            <a th:href="${projectLink}" th:text="${projectLink}" target="_blank"></a>
         </div>
     </div>
 </div>
