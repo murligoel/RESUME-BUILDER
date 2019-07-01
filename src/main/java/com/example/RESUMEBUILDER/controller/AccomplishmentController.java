@@ -26,7 +26,7 @@ public class AccomplishmentController {
         modelAndView.addObject("fetched_id",fetched_id);
         return modelAndView;
     }
-    @RequestMapping(value = "/skills", method = RequestMethod.POST)
+    @RequestMapping(value = "/accomplishments", method = RequestMethod.POST)
     public ModelAndView createAccomplishments(Accomplishment accomplishment, BindingResult bindingResult ) {
         ModelAndView modelAndView = new ModelAndView();
         if(bindingResult.hasErrors()){
@@ -37,7 +37,7 @@ public class AccomplishmentController {
         else {
             accomplishmentService.createAccomplishments(accomplishment);
             fetched_id_accomplishment = accomplishment.getId();
-            modelAndView = accomplishmentsForm("Accomplishments has been uploaded",AccomplishmentController.fetched_id_accomplishment);
+            modelAndView = accomplishmentsForm("Accomplishments has been uploaded",fetched_id_accomplishment);
         }
         return modelAndView;
     }
