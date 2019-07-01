@@ -32,7 +32,7 @@
             <a th:href="${projectLink}" th:text="${projectLink}" target="_blank"></a>
         </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4" th:each="accomplishment : ${accomplishments.accomplishment}">
+    <div class="col-12 col-md-6 col-lg-4" th:each="accomplishment : ${accomplishments.mentionAccomplishments}">
         <div>
                         <li th:text="${accomplishment}"></li>
 <!--            <a th:href="${projectLink}" th:text="${projectLink}" target="_blank"></a>-->

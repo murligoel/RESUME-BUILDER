@@ -18,5 +18,5 @@ public class Accomplishment {
 
     @Column
     @ElementCollection(targetClass=String.class)
-    private List<String> accomplishment;
+    private List<String> mentionAccomplishments;
 }
