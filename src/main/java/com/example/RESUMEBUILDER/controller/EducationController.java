@@ -47,4 +47,26 @@ public class EducationController {
         }
         return modelAndView;
     }
+
+    @RequestMapping(value="/education/update/{id}" ,method= RequestMethod.GET)
+    public ModelAndView editEducationForm(String msg , @PathVariable  Long id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("educationForm");
+        Education educationForm = educationService.getEducationDetails(id);
+        modelAndView.addObject("education",educationForm);
+        modelAndView.addObject("msg", msg);
+
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/education/update/{fetched_id}", method = RequestMethod.PUT)
+    public ModelAndView edit(@Valid Education education, @PathVariable Long fetched_id ) {
+        ModelAndView modelAndView = new ModelAndView();
+//        personalService.updatePersonalDetails(personal,fetched_id);
+        educationService.updateEducationDetails(education,fetched_id);
+        modelAndView = editEducationForm("Education details has been updated",EducationController.educationFormId);
+
+        return modelAndView;
+    }
 }

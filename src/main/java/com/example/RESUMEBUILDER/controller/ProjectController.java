@@ -18,12 +18,14 @@ public class ProjectController {
     public static Long projectFormId;
 
     @RequestMapping(value="/projects" ,method= RequestMethod.GET)
-    public ModelAndView projectsForm(String msg, Long fetched_id){
+    public ModelAndView projectsForm(String msg, Long fetched_id,Long fetched_id_education){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("project");
         modelAndView.addObject("projects",new Project());
         modelAndView.addObject("msg", msg);
         modelAndView.addObject("fetched_id",fetched_id);
+        fetched_id_education = EducationController.educationFormId;
+        modelAndView.addObject("fetched_id_education",fetched_id_education);
         return modelAndView;
     }
     @RequestMapping(value = "/projects", method = RequestMethod.POST)
@@ -35,10 +37,9 @@ public class ProjectController {
             modelAndView.addObject("projects", project);
         }
         else {
-//            skills.getSkill().spliterator();
             projectService.createdProject(project);
             projectFormId = project.getId();
-            modelAndView = projectsForm("Projects has been uploaded",projectFormId);
+            modelAndView = projectsForm("Projects has been uploaded",projectFormId,EducationController.educationFormId);
         }
         return modelAndView;
     }

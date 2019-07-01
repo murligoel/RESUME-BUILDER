@@ -20,4 +20,10 @@ public class EducationServiceImpl implements EducationService{
     public Education getEducationDetails(Long id) {
         return educationRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Education updateEducationDetails(Education education, Long id) {
+        education.setId(id);
+        return educationRepository.save(education);
+    }
 }
