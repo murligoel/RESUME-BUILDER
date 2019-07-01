@@ -26,19 +26,20 @@ public class InterestController {
         modelAndView.addObject("fetched_id",fetched_id);
         return modelAndView;
     }
+
     @RequestMapping(value = "/interests", method = RequestMethod.POST)
     public ModelAndView createInterests(Interests interests, BindingResult bindingResult ) {
         ModelAndView modelAndView = new ModelAndView();
         if(bindingResult.hasErrors()){
             modelAndView.setViewName("interest");
-            modelAndView.addObject("msg", "Failed to Update Skills due to some errors");
+            modelAndView.addObject("msg", "Failed to Update interests due to some errors");
             modelAndView.addObject("interests", interests);
         }
         else {
 //            interests.getInterests().spliterator();
             interestService.createInterests(interests);
             interestFormId = interests.getId();
-            modelAndView = interestsForm("Skills has been uploaded",interestFormId);
+            modelAndView = interestsForm("Interests has been uploaded",interestFormId);
         }
         return modelAndView;
     }
