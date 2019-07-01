@@ -18,5 +18,5 @@ public class Interests {
 
     @Column
     @ElementCollection(targetClass=String.class)
-    private List<String> interests;
+    private List<String> mentionInterests;
 }
