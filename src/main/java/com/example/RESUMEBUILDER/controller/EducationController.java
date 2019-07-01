@@ -49,11 +49,13 @@ public class EducationController {
     }
 
     @RequestMapping(value="/education/update/{id}" ,method= RequestMethod.GET)
-    public ModelAndView editEducationForm(String msg , @PathVariable  Long id){
+    public ModelAndView editEducationForm(String msg , @PathVariable  Long id,Long personal_fetched_id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("educationForm");
         Education educationForm = educationService.getEducationDetails(id);
         modelAndView.addObject("education",educationForm);
+        personal_fetched_id = PersonalController.personalFormId;
+        modelAndView.addObject("personal_fetched_id",personal_fetched_id);
         modelAndView.addObject("msg", msg);
 
 
@@ -65,7 +67,7 @@ public class EducationController {
         ModelAndView modelAndView = new ModelAndView();
 //        personalService.updatePersonalDetails(personal,fetched_id);
         educationService.updateEducationDetails(education,fetched_id);
-        modelAndView = editEducationForm("Education details has been updated",EducationController.educationFormId);
+        modelAndView = editEducationForm("Education details has been updated",EducationController.educationFormId,PersonalController.personalFormId);
 
         return modelAndView;
     }
