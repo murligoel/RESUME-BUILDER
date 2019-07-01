@@ -28,10 +28,13 @@ public class SkillController {
     @Autowired
     private AccomplishmentService accomplishmentService;
 
+    @Autowired
+    private InterestService interestService;
+
     public static Long skillFormId;
 
     @RequestMapping(value="/skills" ,method= RequestMethod.GET)
-    public ModelAndView skillsForm(String msg, Long fetched_id , Long fetched_id_personal, Long fetched_id_education , Long fetched_id_project , Long fetched_id_accomplishment){
+    public ModelAndView skillsForm(String msg, Long fetched_id , Long fetched_id_personal, Long fetched_id_education , Long fetched_id_project , Long fetched_id_accomplishment,Long fetched_id_interests){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("skill");
         modelAndView.addObject("skills",new Skills());
@@ -41,6 +44,7 @@ public class SkillController {
         modelAndView.addObject("fetched_id_education",fetched_id_education);
         modelAndView.addObject("fetched_id_project",fetched_id_project);
         modelAndView.addObject("fetched_id_accomplishment",fetched_id_accomplishment);
+        modelAndView.addObject("fetched_id_interests",fetched_id_interests);
         return modelAndView;
     }
     @RequestMapping(value = "/skills", method = RequestMethod.POST)
@@ -55,13 +59,13 @@ public class SkillController {
             skills.getSkill().spliterator();
             skillService.createSkill(skills);
             skillFormId = skills.getId();
-            modelAndView = skillsForm("Skills has been uploaded",skillFormId,PersonalController.personalFormId,EducationController.educationFormId,ProjectController.projectFormId,AccomplishmentController.fetched_id_accomplishment);
+            modelAndView = skillsForm("Skills has been uploaded",skillFormId,PersonalController.personalFormId,EducationController.educationFormId,ProjectController.projectFormId,AccomplishmentController.fetched_id_accomplishment,InterestController.interestFormId);
         }
         return modelAndView;
     }
 
-    @RequestMapping(value = "/skillView/{id1}/{id2}/{id3}/{id4}/{id5}",method = RequestMethod.GET)
-    public ModelAndView getSkills(@PathVariable(value = "id1") Long id1,@PathVariable(value = "id2") Long id2 , @PathVariable(value = "id3") Long id3,@PathVariable(value = "id4") Long id4,@PathVariable(value = "id5") Long id5){
+    @RequestMapping(value = "/skillView/{id1}/{id2}/{id3}/{id4}/{id5}/{id6}",method = RequestMethod.GET)
+    public ModelAndView getSkills(@PathVariable(value = "id1") Long id1,@PathVariable(value = "id2") Long id2 , @PathVariable(value = "id3") Long id3,@PathVariable(value = "id4") Long id4,@PathVariable(value = "id5") Long id5,@PathVariable(value = "id6") Long id6){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("skillView");
         modelAndView.addObject("personal",personalService.getPersonalDetails(id1));
@@ -69,6 +73,7 @@ public class SkillController {
         modelAndView.addObject("skills",skillService.getSkillById(id3));
         modelAndView.addObject("projects",projectService.getProjectById(id4));
         modelAndView.addObject("accomplishments",accomplishmentService.getAccomplishmentById(id5));
+        modelAndView.addObject("interests",interestService.getInterestsById(id6));
         return modelAndView;
     }
 }
